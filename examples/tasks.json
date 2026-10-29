@@ -1,0 +1,15 @@
+{
+  "tasks": [
+    {
+      "name": "summarize_handbook",
+      "requires": [
+        {
+          "name": "read_documents",
+          "scopes": [
+            "docs:handbook"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "local": {
+      "command": "python",
+      "args": [
+        "server.py"
+      ],
+      "env": {
+        "API_TOKEN": "${API_TOKEN}"
+      }
+    }
+  }
+}

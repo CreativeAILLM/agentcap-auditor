@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentcap-auditor"
+version = "0.1.0"
+description = "Offline agent capability auditing and least-privilege policy compilation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = []
+
+[project.scripts]
+agentcap = "agentcap.cli:main"
+
+[tool.setuptools.package-data]
+agentcap = ["fixtures/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

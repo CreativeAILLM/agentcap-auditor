@@ -1,0 +1,121 @@
+{
+  "manifest": {
+    "version": 1,
+    "tools": [
+      {
+        "name": "read_documents",
+        "tiers": [
+          "read"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      {
+        "name": "search_catalog",
+        "tiers": [
+          "read"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      {
+        "name": "update_ticket",
+        "tiers": [
+          "write"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      {
+        "name": "send_email",
+        "tiers": [
+          "write",
+          "network_egress"
+        ],
+        "scopes": [
+          "*"
+        ],
+        "hosts": [
+          "*"
+        ]
+      },
+      {
+        "name": "fetch_url",
+        "tiers": [
+          "network_egress"
+        ],
+        "hosts": [
+          "*"
+        ]
+      },
+      {
+        "name": "write_file",
+        "tiers": [
+          "filesystem_write"
+        ],
+        "scopes": [
+          "*"
+        ],
+        "paths": [
+          "*"
+        ]
+      },
+      {
+        "name": "shell",
+        "tiers": [
+          "shell_execution"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      {
+        "name": "read_secret",
+        "tiers": [
+          "secrets_access"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      {
+        "name": "payment",
+        "tiers": [
+          "payments"
+        ],
+        "scopes": [
+          "*"
+        ]
+      },
+      {
+        "name": "delete_record",
+        "tiers": [
+          "write"
+        ],
+        "scopes": [
+          "*"
+        ]
+      }
+    ]
+  },
+  "task": {
+    "name": "cleanup_record",
+    "requires": [
+      {
+        "name": "search_catalog",
+        "scopes": [
+          "catalog:public"
+        ]
+      },
+      {
+        "name": "delete_record",
+        "scopes": [
+          "record:expired-42"
+        ]
+      }
+    ]
+  }
+}
