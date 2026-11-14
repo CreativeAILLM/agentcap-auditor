@@ -218,3 +218,22 @@ Tests cover parsers, classification, findings, redaction, compilation rejection
 paths, MCP transport dependencies, CLI output and fixture-driven benchmark math.
 GitHub Actions runs pytest on push and pull requests for Python 3.10–3.13.
 Only the local interpreter run is claimed until hosted CI actually executes.
+
+## AgentCap Auditor Pro
+
+The packaged release of AgentCap Auditor 0.1.0 is also available under a
+Pro license. The source code in this repository remains free under the MIT
+License; the Pro purchase covers the official packaged distribution, the
+Pro license seat rights, and 12 months of packaged updates.
+
+- **AgentCap Auditor Pro, USD 49 one-time.** 1 seat (one individual user).
+  Buy: https://buy.stripe.com/eVq6oG2YaaTFafff25aVa03
+- **AgentCap Auditor Pro Team, USD 149 one-time.** 5 seats (up to five
+  individual users within one organization).
+  Buy: https://buy.stripe.com/6oU3cubuGgdZ9bb7zDaVa04
+
+The package contains the v0.1.0 CLI source, the examples, the full test
+suite, the MIT License, the Pro license, and README-Pro with install and
+quickstart instructions. Use of v0.1.0 is perpetual; after the 12-month
+update window an optional renewal (USD 19 to 24 per year) extends the
+updates. There is no subscription.
