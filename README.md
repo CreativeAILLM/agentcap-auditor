@@ -1,7 +1,7 @@
-# AgentCap Auditor v0.1
+# AgentCap Auditor v0.2
 
 An offline Python CLI for reviewing agent authority and compiling explicit task
-requirements into a default-deny capability policy. Version **0.1.0**, MIT license.
+requirements into a default-deny capability policy. Version **0.2.0**, MIT license.
 No runtime dependencies, network calls, configured process execution, telemetry,
 or model API calls. Python 3.10 or newer.
 
@@ -211,6 +211,54 @@ pay_invoice                   13        1    92.31%
 cleanup_record                13        2    84.62%
 Mean reduction: 85.38%
 ```
+
+## MCP server mode
+
+The same engine also runs as a Model Context Protocol server over stdio, so
+an MCP client can call the audit and the compiler as tools. The server is a
+thin transport layer: it runs the identical core functions and returns the
+identical output the CLI prints for the same input. It adds no network calls,
+no telemetry, and no process execution of its own.
+
+Install and run:
+
+```sh
+python -m pip install agentcap-auditor
+agentcap-server
+```
+
+Until the package is on PyPI, install from a repository checkout instead
+(`python -m pip install .`); the `agentcap-server` entry point is the same.
+`python -m agentcap.server` is equivalent.
+
+Client configuration:
+
+```json
+{
+  "mcpServers": {
+    "agentcap-auditor": {
+      "command": "agentcap-server"
+    }
+  }
+}
+```
+
+Tools published:
+
+- `audit` takes a `config` object (an agent tool manifest or an `mcpServers`
+  configuration) and an optional `format` (`json` or `markdown`), and returns
+  the audit report exactly as `agentcap audit` prints it.
+- `compile` takes a `config` object and a `tasks` object (the same document
+  the CLI reads with `--tasks`) and returns the default-deny policy exactly
+  as `agentcap compile` prints it.
+
+Invalid input is returned as a tool error carrying the same message the CLI
+writes to stderr. The server speaks newline-delimited JSON-RPC 2.0 on stdio
+and answers the standard `initialize`, `tools/list`, and `tools/call`
+methods.
+
+Registry name: `mcp-name: io.github.CreativeAILLM/agentcap-auditor`. A
+registry submission draft lives in `server.json` at the repository root.
 
 ## Development
 
