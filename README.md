@@ -269,6 +269,10 @@ Only the local interpreter run is claimed until hosted CI actually executes.
 
 ## AgentCap Auditor Pro
 
+**Watch (52 seconds):** a real audit of the Playwright MCP default install,
+33 findings, 3 critical, 31 granted authorities compiled to 8.
+https://github.com/CreativeAILLM/agentcap-auditor/releases/download/v0.1.0/agentcap-sales-v3.mp4
+
 The packaged release of AgentCap Auditor 0.1.0 is also available under a
 Pro license. The source code in this repository remains free under the MIT
 License; the Pro purchase covers the official packaged distribution, the
